@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="">
+<mapper namespace="com.didi.dao.UserDao">
+    <resultMap id="UserMap" type="com.didi.entity.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="bir" property="bir"/>
+    </resultMap>
+    <select id="selectAll" resultMap="UserMap">
+        select id,name,sex,bir from user
+    </select>
+    <select id="selectOne" resultMap="UserMap">
+        select id,name,sex,bir from user where id= #{id}
+    </select>
 
 </mapper>
